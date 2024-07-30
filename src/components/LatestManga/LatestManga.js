@@ -56,22 +56,41 @@ const LatestManga = () => {
     setCurrentPage(clickPageNumber);
   };
   useEffect(() => {
+    // const getData = async () => {
+    //   setLoading(true);
+    //   const response = await axios.get(
+    //     `https://apimanga.mangasocial.online/${sv}/manga/lastest_manga/${currentPage}`
+    //   );
+    //   setNewRelease(response.data);
+    //   console.log("pageeeee", response.data);
+
+    //   setLoading(false);
+    //   window.scrollTo({
+    //     top: 0,
+    //     behavior: "smooth",
+    //   });
+    //   console.log("newRelease:sss ", newRelease);
+    //   return response.data;
+    // };
     const getData = async () => {
       setLoading(true);
-      const response = await axios.get(
-        `https://apimanga.mangasocial.online/${sv}/manga/lastest_manga/${currentPage}`
-      );
-      setNewRelease(response.data);
-      console.log("pageeeee", response.data);
-
-      setLoading(false);
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-      console.log("newRelease:sss ", newRelease);
-      return response.data;
+      try {
+        const response = await axios.get(
+          `https://apimanga.mangasocial.online/${sv}/manga/lastest_manga/${currentPage}`
+        );
+        setNewRelease(response.data);
+        console.log("pageeeee", response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
     };
+
     getData();
   }, [currentPage, sv]);
 
