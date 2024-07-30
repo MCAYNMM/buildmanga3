@@ -74,7 +74,7 @@ const LatestCardManga = ({
           data-original={poster}
           className="h-[auto] w-[109px] object-cover"
         />
-        <div className="relative h-full max-[486px]:max-w-[290px] max-[846px]:max-w-[700px] min-[761px]:max-w-[730px] min-[800px]:max-w-[750px] min-w[1000px]:max-w[900px] max-[761px]:max-w-[600px] max-[683px]:max-w-[300px] max-[360px]:max-w-[250px] max-[333px]:max-w-[200px]">
+        <div className="relative h-full max-[486px]:max-w-[260px] max-[846px]:max-w-[700px] min-[761px]:max-w-[730px] min-[800px]:max-w-[750px] min-w[1000px]:max-w[900px] max-[761px]:max-w-[600px] max-[683px]:max-w-[300px] max-[360px]:max-w-[220px] max-[333px]:max-w-[200px]">
           <h2
             className="text-white font-bold mb-3 text-xl truncate max-w-full"
             ref={titleRef}
@@ -95,7 +95,7 @@ const LatestCardManga = ({
               </NavLink>
             </li>
           </ul>
-          <p className="hidden  max-[600px]:block mt-4 text-sm whitespace-nowrap text-white bg-gray-900  p-2 rounded-lg">
+          <p className="hidden  max-[600px]:inline-block mt-4 text-sm whitespace-nowrap text-white bg-gray-900  p-2 rounded-lg">
             Update: {update}
           </p>
         </div>

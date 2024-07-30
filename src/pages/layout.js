@@ -447,18 +447,19 @@ export default function Layout() {
   useEffect(() => {
     dispatch(setIsLoading(true));
   }, []);
+  ////////////////////////////
+  // useEffect(() => {
+  //   // Thực hiện reload trang khi slug thay đổi
+  //   // navigate(window.location.pathname, { replace: true });
+  //   setReload(!reload);
+  // }, [slug]);
+  /////////////////////////////////////
 
-  useEffect(() => {
-    // Thực hiện reload trang khi slug thay đổi
-    // navigate(window.location.pathname, { replace: true });
-    setReload(!reload);
-  }, [slug]);
-
-  const toggleMenu = () => {
-    const show = !showMenu;
-    setShowMenu(show);
-    console.log(showMenu);
-  };
+  // const toggleMenu = () => {
+  //   const show = !showMenu;
+  //   setShowMenu(show);
+  //   console.log(showMenu);
+  // };
   const handleNavigateClickLogo = () => {
     if (sv != 4) {
       navigate(`/` + sv);

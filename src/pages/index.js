@@ -41,7 +41,7 @@ export default function Index() {
     <div className="pt-3 cont">
       {/* <CustomizeSpin /> */}
 
-      <div className="mx-10 max-[435px]:px-4 mb-3 pt-[80px]">
+      <div className="mx-10  mb-3 pt-[80px]">
         <div className="max-[480px]:!text-2xl  text-5xl max-[738px]:text-[34px]  relative text-white font-semibold">
           Latest Manga Release
           <div className=" w-[100px] h-[7px] bg-[#F45F17] -top-[40%] rounded-[35px] left-0 absolute "></div>
@@ -58,7 +58,7 @@ export default function Index() {
       sv == 17 ||
       sv == 18 ? (
         <>
-          <div className="mx-10 max-[435px]:px-4 mb-3 pt-[80px]">
+          <div className="mx-10  mb-3 pt-[80px]">
             <div className="max-[480px]:!text-2xl  text-5xl max-[738px]:text-[34px] text-white relative font-semibold">
               Hot Manga
               <div className=" w-[100px] h-[7px] bg-[#F45F17] -top-[40%] rounded-[35px] left-0 absolute "></div>
@@ -72,7 +72,7 @@ export default function Index() {
 
       {sv == 12 || sv == 2 || sv == 19 ? (
         <>
-          <div className="mx-10 max-[435px]:px-4 mb-3 pt-[80px]">
+          <div className="mx-10  mb-3 pt-[80px]">
             <div className="max-[480px]:!text-2xl  text-5xl max-[738px]:text-[34px]  relative text-white font-semibold">
               Popular Manga
               <div className=" w-[100px] h-[7px] bg-[#F45F17] -top-[40%] rounded-[35px] left-0 absolute "></div>
@@ -84,7 +84,7 @@ export default function Index() {
         ""
       )}
 
-      <div className=" mx-10 max-[435px]:px-4 mb-3 pt-[80px]">
+      <div className=" mx-10  mb-3 pt-[80px]">
         <div className="max-[480px]:!text-2xl  text-5xl max-[738px]:text-[34px] relative text-white font-semibold">
           Recommended Comics
           <div className=" w-[100px] h-[7px] bg-[#F45F17] -top-[40%] rounded-[35px] left-0 absolute "></div>
@@ -94,7 +94,7 @@ export default function Index() {
         </Link> */}
       </div>
       <Recommended />
-      <div className="mx-10 max-[435px]:px-4 mb-3 pt-[80px]">
+      <div className="mx-10  mb-3 pt-[80px]">
         <div className="max-[480px]:!text-2xl  text-5xl max-[738px]:text-[34px] relative text-white font-semibold">
           Recent Manga
           <div className=" w-[100px] h-[7px] bg-[#F45F17] -top-[40%] rounded-[35px] left-0 absolute "></div>

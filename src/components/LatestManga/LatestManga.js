@@ -178,16 +178,16 @@ const LatestManga = () => {
             ))}
         </div>
       )}
-      <div className="flex mt-5 justify-center">
+      <div className="flex items-center justify-center max-[416px]:px-5 max-[416px]:flex-start flex-wrap grid-flow-row mt-5  ">
         <button
           onClick={() => handlePageClick(1)}
-          className="text-white px-3 py-1 flex gap-0 bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+          className="text-white px-3 py-1 max-[480px]:!px-1 max-[480px]:text-sm flex gap-0 bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
         >
           <FaAngleDoubleLeft size={24} />
         </button>
         <button
           onClick={() => handlePageClick(currentPage - 1)}
-          className="text-white px-3 py-1 flex gap-0 bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+          className="text-white px-3 py-1 flex gap-0 max-[480px]:!px-1 max-[480px]:text-sm bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
         >
           <FaArrowLeft size={24} />
         </button>
@@ -200,7 +200,7 @@ const LatestManga = () => {
             )
           }
           className={
-            `text-white px-3 py-1  border border-gray-600 ${
+            `text-white px-3 py-1 max-[480px]:!px-1 border max-[480px]:text-sm border-gray-600 ${
               rangePagination == false
                 ? "bg-gray-600"
                 : `${
@@ -238,7 +238,7 @@ const LatestManga = () => {
                 ? "bg-gray-600"
                 : " bg-gray-800"
             }` +
-            " text-white px-3 py-1  border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+            " text-white px-3 py-1 max-[480px]:!px-1 max-[480px]:text-sm border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
           }
         >
           {rangePagination
@@ -261,7 +261,7 @@ const LatestManga = () => {
                 ? "bg-gray-600"
                 : " bg-gray-800"
             }` +
-            " text-white px-3 py-1  border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+            " text-white px-3 py-1 max-[480px]:!px-1 max-[480px]:text-sm border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
           }
         >
           {rangePagination
@@ -284,7 +284,7 @@ const LatestManga = () => {
                 ? "bg-gray-600"
                 : " bg-gray-800"
             }` +
-            " text-white px-3 py-1  border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+            " text-white px-3 py-1 max-[480px]:!px-1 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
           }
         >
           {rangePagination
@@ -293,7 +293,7 @@ const LatestManga = () => {
         </button>
         <button
           disabled
-          className="text-white px-3 py-1 bg-gray-400 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out opacity-50 cursor-not-allowed"
+          className="text-white px-2 py-1 max-[480px]:!px-1 max-[480px]:text-sm bg-gray-400 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out opacity-50 cursor-not-allowed"
         >
           ...
         </button>
@@ -301,13 +301,13 @@ const LatestManga = () => {
           onClick={() =>
             handlePageClick(newRelease && newRelease.page_info[1].total_page)
           }
-          className="text-white px-3 py-1 bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+          className="text-white px-3 max-[480px]:!px-1 py-1 max-[480px]:text-sm bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
         >
           {newRelease && newRelease.page_info[1].total_page}
         </button>
         <button
           onClick={() => handlePageClick(newRelease.page_info[1].total_page)}
-          className="text-white px-3 py-1 bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
+          className="text-white px-3 py-1 max-[480px]:!px-1 max-[480px]:text-sm bg-gray-800 hover:bg-gray-600 border border-gray-600 rounded-md transition-colors duration-200 ease-in-out"
         >
           <FaAngleDoubleRight size={24} />
         </button>
