@@ -324,7 +324,11 @@ export default function Layout() {
   }, []);
 
   useEffect(() => {
-    navigate("/" + sv);
+    if (sv != 4) {
+      navigate("/" + sv);
+    } else {
+      navigate("/" + sv + "/novel");
+    }
   }, []);
   const fetchData = (value) => {
     fetch("https://apimanga.mangasocial.online/")
