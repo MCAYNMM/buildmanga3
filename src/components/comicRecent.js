@@ -52,33 +52,36 @@ const ComicRecent = () => {
         </div>
       ) : (
         <div className="grid grid-cols-2  gap-[20px] px-[60px] max-[435px]:px-4 max-[435px]:gap-4 max-[435px]:pb-4 pb-[60px]">
-          {firstFiveItem.map((item, index) => (
-            <CardRecentManga
-              key={index}
-              poster={item?.image_poster_link_goc || item?.poster_novel}
-              title={item?.title_manga || item?.title_novel}
-              rate={item?.rate || item?.time_update}
-              update={item.time_release || item?.time_update}
-              chapter={item.chapter_new || item?.title_chapter}
-              chapterLink={item.url_chapter || item?.id_chapter}
-              path_segment={
-                item?.path_segment_manga
-                  ? item?.path_segment_manga
-                  : item?.url_manga
-                  ? item?.url_manga.replace(
-                      "https://apimanga.mangasocial.online/rmanga/",
-                      ""
-                    )
-                  : item.link_server_novel.replace(
-                      `https://apimanga.mangasocial.online/web/rnovel/${sv}/`,
-                      ""
-                    )
-              }
-            />
-          ))}
+          {comicRecent
+            .slice(0, visibleCount)
+            .comicRecent.slice(0, visibleCount)
+            .map((item, index) => (
+              <CardRecentManga
+                key={index}
+                poster={item?.image_poster_link_goc || item?.poster_novel}
+                title={item?.title_manga || item?.title_novel}
+                rate={item?.rate || item?.time_update}
+                update={item.time_release || item?.time_update}
+                chapter={item.chapter_new || item?.title_chapter}
+                chapterLink={item.url_chapter || item?.id_chapter}
+                path_segment={
+                  item?.path_segment_manga
+                    ? item?.path_segment_manga
+                    : item?.url_manga
+                    ? item?.url_manga.replace(
+                        "https://apimanga.mangasocial.online/rmanga/",
+                        ""
+                      )
+                    : item.link_server_novel.replace(
+                        `https://apimanga.mangasocial.online/web/rnovel/${sv}/`,
+                        ""
+                      )
+                }
+              />
+            ))}
         </div>
       )}
-      <div className="text-center font-semibold text-xl pb-3">
+      <div className="text-center font-semibold text-xl pb-[100px]">
         {visibleCount < comicRecent.length && (
           <button
             onClick={handleShowMore}

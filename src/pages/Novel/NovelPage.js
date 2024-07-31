@@ -14,6 +14,8 @@ import "react-h5-audio-player/lib/styles.css";
 import Audio from "./../../components/audioPlayer/audioPlayer";
 import TextToSpeech from "../../components/textToSpeech";
 import TTS from "../../components/TextToSpeech/TTS";
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
 const NovelPage = () => {
   const [showTab, setShowTab] = useState(true);
   const [chapterDetail, setChapterDetail] = useState([]);
@@ -32,9 +34,6 @@ const NovelPage = () => {
   const navigate = useNavigate();
 
   const readmode = useSelector((state) => state.ReadMode.readmode);
-
-  const text =
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora delectus maiores dolores iste in autem accusantium corrupti dolorum ex molestias aut magni voluptates obcaecati esse, impedit, nam numquam repudiandae recusandae!";
 
   const getChapterFromUrl = (url) => {
     const parts = url.split("/");

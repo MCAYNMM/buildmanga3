@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
+import jsPDF from "jspdf";
+import axios from "axios";
 
 const ChapterCard = ({
   chapter,
@@ -12,9 +14,9 @@ const ChapterCard = ({
   chapterName,
   genre,
 }) => {
-  console.log("chapters: ", chapter);
-  console.log("title: ", title);
-  console.log("poster: ", poster);
+  console.log("chapterssss: ", chapter);
+  console.log("titlessss: ", title);
+  console.log("postersss: ", poster);
   console.log("des: ", des);
   console.log("slug: ", slug);
   console.log("chapterLink: ", chapterLink);
@@ -28,6 +30,24 @@ const ChapterCard = ({
     `http://apimanga.mangasocial.online/rmanga/${slug}/`,
     ""
   );
+
+  const downloadPDF = async (e) => {
+    const response = await axios.get(chapterLink);
+    const Content = response.data;
+
+    const doc = new jsPDF();
+
+    doc.setFontSize(16);
+    doc.text(title, 10, 10);
+
+    doc.setFontSize(12);
+    const textLines = doc.splitTextToSize(Content.content_chapter, 180);
+    doc.text(textLines, 10, 20);
+
+    doc.save(`${title}_${chapterName}.pdf`);
+    e.stopPropagation();
+  };
+
   const chapterNumberReadMode = chapterLink;
   // console.log("chapter",chapterLink);
   const getChapterFromUrl = (url) => {
@@ -50,37 +70,16 @@ const ChapterCard = ({
             : getChapterFromUrl2(chapterNumberReadMode)
         }`}
       >
-        <div className="flex md:flex-row items-center gap-4 md:gap-[80px] my-3  cursor-pointer py-4 md:py-8 px-2 md:px-12 transition-all duration-200">
+        <div className="flex border-gray-300 border-b shallow-sm items-center w-full gap-4 md:gap-[80px] my-3  cursor-pointer py-4 md:py-8 px-2 justify-between md:px-12 transition-all duration-200">
           {/* chapter info */}
-          <div className="flex items-center gap-4 md:gap-12 w-full md:w-auto">
-            <div>
-              <div className="text-base md:text-xl py-1 md:py-2 font-semibold whitespace-nowrap leading-5 md:leading-7 text-white">
-                <span className="underline decoration-1 whitespace-nowrap">
-                  {` ${chapterName} `}
-                </span>
-              </div>
-              <div className="text-sm md:text-base font-medium leading-5 md:leading-6 text-gray-400">
-                12/07/2023
-              </div>
-            </div>
+          <div className="items-center text-xl truncate gap-4 md:gap-12 md:py-2 text-white font-semibold whitespace-nowrap w-full md:w-auto">
+            {` ${chapterName} `}
           </div>
-          <div className="flex md:flex-row ps-8 items-start md:items-center justify-between w-full md:gap-0">
-            <div className="text-xl block text-center max-[480px]:hidden md:text-2  xl leading-5 md:leading-6 font-medium text-gray-300 w-full md:w-3/4 ">
-              {truncatedDes}
-            </div>
-            {user_id ? (
-              <div className="text-sm md:text-2xl leading-5 md:leading-6 font-semibold text-[#ff9f66] w-full md:w-1/4 text-right">
-                Read
-              </div>
-            ) : (
-              <div className="text-sm md:text-2xl leading-5 md:leading-6 font-semibold text-[#ff9f66] w-full md:w-1/4 text-right">
-                Login
-              </div>
-            )}
+          <div className="items-start whitespace-nowrap  md:items-center font-semibold text-xl text-[#ff9f66] text-right w-full md:gap-0">
+            <button className="hover:underline" onClick={(e) => downloadPDF(e)}>
+              Down Load
+            </button>
           </div>
-        </div>
-        <div className="text-xl hidden max-[480px]:block md:text-base leading-5 md:leading-6 font-medium text-gray-300 w-full">
-          {truncatedDes}
         </div>
       </NavLink>
     </>

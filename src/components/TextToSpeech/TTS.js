@@ -26,7 +26,7 @@ export default function App({ content }) {
   const { Text, speechStatus, start, pause, stop } = useSpeech({
     text: (
       <div className="text-lg text-white pt-8">
-        <p className="text-4xl max-[550px]:text-2xl leading-1.625 text-white">
+        <p className="text-4xl  max-[550px]:!text-xl leading-1.625 text-white">
           {content}
         </p>
       </div>

@@ -414,10 +414,11 @@ export default function Layout() {
   const handleNavigate = (index) => {
     if (index === 4 || index === 11) {
       navigate(`/${index}/novel`);
+      window.location.reload(true);
     } else {
       navigate(`/${index}`);
+      window.location.reload(true);
     }
-    window.location.reload(true);
   };
 
   let isLogin = getSessionData();
